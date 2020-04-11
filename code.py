@@ -3,7 +3,7 @@ from fbchat import Client,log
 from fbchat.models import *
 
 import credentials#when you run it create a new python file with the name credentials and put email and password there
-import random
+#Risky...Leads to temporary account lock
 
 class Carnage(Client):
 
@@ -27,18 +27,11 @@ class Carnage(Client):
         reply3=["hello","hey","what's up","hi"]
 
 
-        if author_id!=self.uid:
+        if author_id!=self.uid:#get author id from console
             msgText=msgText.lower()
-
-            if "who" in msgText or "what" in msgText or "tui ke" in msgText or "tui keda" in msgText:
-                ran2 = random.randint(0, 1)
-                self.send(Message(text=reply2[ran2]),thread_id=thread_id,thread_type=thread_type)
-            elif "hello" in msgText or "hey" in msgText or "kire" in msgText or "oi" in msgText or "sakib" in msgText:
-                ran3 = random.randint(0, 2)
-                self.send(Message(text=reply3[ran3]), thread_id=thread_id, thread_type=thread_type)
-            else:
-                ran = random.randint(0, 2)
-                self.send(Message(text=reply[ran]), thread_id=thread_id, thread_type=thread_type)
+            reply="ok"
+            if author_id=="100026586435660":
+                self.send(Message(reply), thread_id=thread_id, thread_type=thread_type)
 
         self.markAsDelivered(author_id,thread_id)#mark reply as delivered
 
