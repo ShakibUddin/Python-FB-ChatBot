@@ -30,7 +30,7 @@ class Carnage(Client):
         if author_id!=self.uid:#get author id from console
             msgText=msgText.lower()
             reply="ok"
-            if author_id=="100026586435660":
+            if author_id=="100026586435660":#This is Rimi's author_id
                 self.send(Message(reply), thread_id=thread_id, thread_type=thread_type)
 
         self.markAsDelivered(author_id,thread_id)#mark reply as delivered
